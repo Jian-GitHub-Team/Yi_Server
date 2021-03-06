@@ -8,12 +8,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Yi Server" />
+        <module name="Yi_Server" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Yi Server" options="-parameters" />
+      <module name="Yi_Server" options="-parameters" />
     </option>
   </component>
 </project>
