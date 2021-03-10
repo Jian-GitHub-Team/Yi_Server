@@ -27,6 +27,14 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>11.0.2</version>
+            <scope>test</scope>
+        </dependency>
+
+
+        <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
 <!--            <version>4.5.12</version> -->
@@ -140,6 +148,12 @@
             <version>2.2.3</version>
             <classifier>jdk15</classifier>
             <!-- jdk版本 -->
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>mac</version>
+            <scope>compile</scope>
         </dependency>
         <!-- Json依赖架包下载结束 -->
     </dependencies>

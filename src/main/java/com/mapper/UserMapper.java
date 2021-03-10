@@ -15,5 +15,5 @@ import java.util.List;
 @Repository
 public interface UserMapper {
     @Select("select * from user")
-    List<User> select();
+    public List<User> select();
 }

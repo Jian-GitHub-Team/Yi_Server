@@ -13,29 +13,27 @@ import java.util.List;
 @RequestMapping("userselect")
 public class TEST {
     @RequestMapping("select")
-    public Object select(){
+    public static <T> List<T> select(Class<T> clazz) {
         String url = "http://localhost:8081/user/select";
-        System.out.println("请求url:" + url);
+//        System.out.println("请求url:" + url);
         String result = "null";
         try {
             result = HttpClientUtil.doGet(url);
-            System.out.println("请求结果：" + result);
-            System.out.println("===============");
-            //转化为list
-            List<User> list2 = JsonUtils.jsonToList(result,User.class);
+//            System.out.println("请求结果：" + result);
+//            System.out.println("===============");
+//            //转化为list
+//            List<User> list2 = JsonUtils.jsonToList(result,User.class);
 
-            System.out.println(list2);
-
-            for (User stu : list2) {
-                System.out.println("这是"+stu.getUserName());
-            }
-//            System.out.println(JsonUtils.toJson(result));
-            System.out.println("===============");
-//            System.out.println(JsonUtils.toJson(result));
+//            System.out.println(list2);
+            return JsonUtils.jsonToList(result, clazz);
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
-//        return result;
-        return JsonUtils.toJson(result);
+    }
+
+    @RequestMapping("TTT")
+    public void ttt(){
+        new Listener_Test().lTest();
     }
 }
