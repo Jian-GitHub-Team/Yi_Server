@@ -16,6 +16,6 @@ spring:
 #    47.116.67.165
 #    120.79.202.46
     #url: jdbc:mysql://120.79.202.46:3306/python_statics?characterEncoding=UTF-8&amp;useUnicode=true
-    url: jdbc:mysql://47.116.67.165:3306/yi?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true&autoReconnect=true&failOverReadOnly=false
+    url: jdbc:mysql://www.Jian-Internet.com:3306/yi?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true&autoReconnect=true&failOverReadOnly=false
 #    url: jdbc:mysql://localhost:3306/data?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.jdbc.Driver
