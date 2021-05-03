@@ -44,6 +44,6 @@ public class Registration_Controller {
     @RequestMapping(method = {RequestMethod.POST}, value = "canUseUserName")
     public boolean canUseUserName(@RequestParam("userName") String userName) {
         String queryUserName = Base64Util.decode(userName);
-        return "".equals(queryUserName) ? false : userMapper.selectByUserName(queryUserName) == 0 ? true : false;
+        return "".equals(queryUserName) ? false : userMapper.countUsersByName(queryUserName) == 0 ? true : false;
     }
 }

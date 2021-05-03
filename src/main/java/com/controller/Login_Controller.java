@@ -1,7 +1,9 @@
 package com.controller;
 
 import com.entity.Login;
+import com.entity.User;
 import com.mapper.Login_Mapper;
+import com.mapper.User_Mapper;
 import com.untils.Base64Util;
 import com.untils.JsonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,8 @@ import java.io.UnsupportedEncodingException;
 public class Login_Controller {
     @Autowired
     Login_Mapper login_mapper;
+    @Autowired
+    User_Mapper user_mapper;
 
     /**
      * 传入用户名，寻得并以Base64编码返回该用户密码
@@ -30,12 +34,14 @@ public class Login_Controller {
     public String login(@RequestParam("userName") String userName){
         String result = "";
         try {
-            Login login = login_mapper.selectPasswordByUserName(Base64Util.decode(userName));
-            if (login == null ? true : "".equals(login.getPassword())){
+//            Login login = login_mapper.selectPasswordByUserName(Base64Util.decode(userName));
+            User user = user_mapper.selectUserByName(Base64Util.decode(userName));
+
+            if (user == null){
                 return result;
             }
-            login.setCreateDate(Base64Util.encode(login.getCreateDate()));
-            result = Base64Util.encode(JsonUtils.toJson(login));
+            user.setCreateDate(Base64Util.encode(user.getCreateDate()));
+            result = Base64Util.encode(JsonUtils.toJson(user));
             return result;
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
