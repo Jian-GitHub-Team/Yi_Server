@@ -44,7 +44,7 @@ public interface User_Mapper {
      * @param ID 用户ID
      * @return 用户
      */
-    @Select("select * from user where BINARY id = #{ID}")
+    @Select("select id,userName,createDate,lastDate,isOnLine,isAvatar from user where BINARY id = #{ID}")
     User selectUserByID(int ID);
 
     /**

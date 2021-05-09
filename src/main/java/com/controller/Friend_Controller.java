@@ -32,13 +32,13 @@ public class Friend_Controller {
 //            value ="/selectFriendsByID"
 //    )
     @RequestMapping("/selectFriendsByID")
-    public List<Friend> login(@RequestParam("ID") int ID){
-        List<Friend> list = friend_mapper.selectFriendsByID(ID);
-        System.out.println(list);
-        System.out.println(JsonUtils.toJson(list));
-        List<Friend> list1 = JsonUtils.jsonToList(JsonUtils.toJson(list),Friend.class);
-        System.out.println(list1);
-        return list;
+    public String login(@RequestParam("ID") int ID){
+        try {
+            return Base64Util.encode(JsonUtils.toJson(friend_mapper.selectFriendsByID(ID)));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 
 }
